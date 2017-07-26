@@ -43,9 +43,9 @@ RUN apt-get update && apt-get install -y \
 
 #ADD bin/docker-php-pecl-install /usr/local/bin/
 
-RUN docker-php-pecl-install \
-        memcache \
-        uploadprogress
+#RUN docker-php-pecl-install \
+#        memcache \
+#        uploadprogress
 #        xdebug
 
 #ADD ./conf/php-magento.ini /usr/local/etc/php/conf.d/php-magento.ini
