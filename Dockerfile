@@ -49,15 +49,15 @@ RUN docker-php-pecl-install \
         memcache \
         uploadprogress
 
-ADD ./conf/php-magento.ini /usr/local/etc/php/conf.d/php-magento.ini
+#ADD ./conf/php-magento.ini /usr/local/etc/php/conf.d/php-magento.ini
 
 RUN cd /usr/local \
     && curl -sS https://getcomposer.org/installer | php \
     && chmod +x /usr/local/composer.phar \
     && ln -s /usr/local/composer.phar /usr/local/bin/composer
 
-RUN a2enmod deflate
-RUN a2enmod expires
-RUN a2enmod headers
-RUN a2enmod mime
-RUN a2enmod rewrite
+#RUN a2enmod deflate
+#RUN a2enmod expires
+#RUN a2enmod headers
+#RUN a2enmod mime
+#RUN a2enmod rewrite
