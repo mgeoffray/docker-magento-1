@@ -29,8 +29,6 @@ RUN apt-get update && apt-get install -y \
         intl \
         mbstring \
         mcrypt \
-        mysql \
-        mysqli \
         opcache \
         pcntl \
         pdo_mysql \
