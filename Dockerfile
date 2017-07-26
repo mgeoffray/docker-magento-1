@@ -41,7 +41,7 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install gd \
     && apt-get clean
 
-ADD bin/docker-php-pecl-install /usr/local/bin/
+#ADD bin/docker-php-pecl-install /usr/local/bin/
 
 RUN docker-php-pecl-install \
         memcache \
