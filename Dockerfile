@@ -46,13 +46,18 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-pecl-install \
         memcache \
         uploadprogress
+#        xdebug
 
 #ADD ./conf/php-magento.ini /usr/local/etc/php/conf.d/php-magento.ini
 
-RUN cd /usr/local \
-    && curl -sS https://getcomposer.org/installer | php \
-    && chmod +x /usr/local/composer.phar \
-    && ln -s /usr/local/composer.phar /usr/local/bin/composer
+#RUN cd /usr/local \
+#    && curl -sS https://getcomposer.org/installer | php \
+#    && chmod +x /usr/local/composer.phar \
+#    && ln -s /usr/local/composer.phar /usr/local/bin/composer
+
+RUN curl --retry 10 --retry-delay 3 --silent https://getcomposer.org/installer | php -- --install-dir=$BIN_DIR --filename=composer
+RUN curl --retry 10 --retry-delay 3 --silent https://files.magerun.net/n98-magerun.phar -o $BIN_DIR/n98mr && chmod +x $BIN_DIR/n98mr
+RUN curl --retry 10 --retry-delay 3 --silent https://raw.githubusercontent.com/colinmollenhour/modman/master/modman -o $BIN_DIR/modman && chmod +x $BIN_DIR/modman
 
 #RUN a2enmod deflate
 #RUN a2enmod expires
